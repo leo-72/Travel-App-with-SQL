@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">Travel App</string>
+
+    <string name="nameApp">Travel App</string>
+    <string name="subtitleNameApp">Tempellmahbang Tourist Village</string>
+    <string name="versionApp">v1.0</string>
+    <string name="copyright">Copyright © 2021 Nadhif Pamungkas</string>
+    <string name="titleLogin">Welcome to Tempellmahbang</string>
+</resources>
