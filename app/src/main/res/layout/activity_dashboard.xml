@@ -23,22 +23,22 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="350dp"
+        android:layout_height="wrap_content"
         android:padding="10dp"
         android:background="@color/blue">
 
         <de.hdodenhof.circleimageview.CircleImageView
             android:layout_marginLeft="10dp"
             android:id="@+id/img_user"
-            android:layout_width="80dp"
-            android:layout_height="80dp"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
             android:src="@drawable/logo_splash"
             app:civ_border_width="2dp"
             app:civ_border_color="@color/bgColorSplash"/>
 
         <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="80dp"
+            android:layout_width="wrap_content"
+            android:layout_height="60dp"
             android:orientation="vertical"
             android:gravity="center_vertical"
             android:layout_marginLeft="10dp">
@@ -52,7 +52,7 @@
                 android:fontFamily="sans-serif-medium"
                 android:text="Fullname"
                 android:textColor="@color/white"
-                android:textSize="18dp"
+                android:textSize="14dp"
                 android:textStyle="bold" />
             <TextView
                 android:id="@+id/tv_email"
@@ -61,9 +61,28 @@
                 android:textColor="@color/white"
                 android:layout_centerHorizontal="true"
                 android:text="Email"
-                android:textSize="15dp"
+                android:textSize="12dp"
                 android:fontFamily="sans-serif-medium"
                 android:layout_below="@id/tv_fullname"/>
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:orientation="vertical"
+            android:gravity="right|center"
+            android:layout_marginLeft="10dp">
+
+            <Button
+                android:id="@+id/check_ticket"
+                android:layout_width="120dp"
+                android:layout_height="wrap_content"
+                android:text="CHECK TICKET"
+                android:textStyle="bold"
+                android:fontFamily="sans-serif-black"
+                android:textColor="@color/blue"
+                android:drawableLeft="@drawable/ic_ticket"
+                android:textSize="14dp"/>
+
         </LinearLayout>
     </LinearLayout>
     <LinearLayout
@@ -71,7 +90,6 @@
         android:layout_height="wrap_content"
         android:orientation="vertical"
         android:layout_gravity="center"
-        android:layout_marginTop="-260dp"
         android:padding="10dp">
 
         <androidx.recyclerview.widget.RecyclerView

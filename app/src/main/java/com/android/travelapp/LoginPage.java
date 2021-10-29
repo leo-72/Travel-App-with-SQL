@@ -68,6 +68,7 @@ public class LoginPage extends AppCompatActivity {
                 if (userValue.equals(loginUser) && passValue.equals(loginPass) || emailValue.equals(emailUser) && passValue.equals(loginPass)){
                     Intent intent = new Intent(LoginPage.this, Dashboard.class);
                     startActivity(intent);
+                    finish();
                     Toast.makeText(LoginPage.this, "Login", Toast.LENGTH_LONG).show();
                 }else {
                     Toast.makeText(LoginPage.this, "Username or Password doesn't match", Toast.LENGTH_LONG).show();

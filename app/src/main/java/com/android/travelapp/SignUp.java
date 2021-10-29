@@ -32,6 +32,10 @@ public class SignUp extends AppCompatActivity {
     private static final String KEY_PASS = "pass";
     private static final String KEY_REPASS = "repass";
 
+    private static final String KEY_TOTAL_PRICE = "total_price";
+    private static final String KEY_NAME_TOUR = "name_tour";
+    private static final String KEY_COUNT_ITEMS = "count_items";
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -85,6 +89,7 @@ public class SignUp extends AppCompatActivity {
                                 Toast.makeText(SignUp.this, "Successful Registration", Toast.LENGTH_LONG).show();
                                 Intent intent = new Intent(SignUp.this, LoginPage.class);
                                 startActivity(intent);
+                                resetDetailTour();
                             }
                         }
                     }catch (Exception e){
@@ -119,5 +124,12 @@ public class SignUp extends AppCompatActivity {
         inpUser.getEditText().setText(null);
         inpPass.getEditText().setText(null);
         inpRePass.getEditText().setText(null);
+    }
+    private void resetDetailTour(){
+        SharedPreferences.Editor editor = preferences.edit();
+        editor.putString(KEY_NAME_TOUR, null);
+        editor.putString(KEY_COUNT_ITEMS, null);
+        editor.putString(KEY_TOTAL_PRICE, null);
+        editor.apply();
     }
 }

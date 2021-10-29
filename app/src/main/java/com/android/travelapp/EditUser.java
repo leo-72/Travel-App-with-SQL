@@ -93,6 +93,7 @@ public class EditUser extends AppCompatActivity {
                                 Toast.makeText(EditUser.this, "Successful Registration", Toast.LENGTH_LONG).show();
                                 Intent intent = new Intent(EditUser.this, LoginPage.class);
                                 startActivity(intent);
+                                finish();
                             }
                         }
                     }catch (Exception e){

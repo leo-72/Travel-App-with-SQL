@@ -23,13 +23,15 @@ public class RecycleViewAdapter extends RecyclerView.Adapter<RecycleViewAdapter.
     private ArrayList<String> al_name_tour = new ArrayList<>();
     private ArrayList<String> al_desc_tour = new ArrayList<>();
     private ArrayList<Integer> al_price_tour = new ArrayList<>();
+    private ArrayList<String> al_location = new ArrayList<>();
     private Context context;
 
-    public RecycleViewAdapter(ArrayList<String>al_img_tour, ArrayList<String>al_name_tour, ArrayList<String>al_desc_tour, ArrayList<Integer> al_price_tour, Context context){
+    public RecycleViewAdapter(ArrayList<String>al_img_tour, ArrayList<String>al_name_tour, ArrayList<String>al_desc_tour, ArrayList<Integer> al_price_tour, ArrayList<String> al_location, Context context){
         this.al_img_tour = al_img_tour;
         this.al_name_tour = al_name_tour;
         this.al_desc_tour = al_desc_tour;
         this.al_price_tour = al_price_tour;
+        this.al_location = al_location;
         this.context = context;
     }
 
@@ -51,12 +53,11 @@ public class RecycleViewAdapter extends RecyclerView.Adapter<RecycleViewAdapter.
         holder.linearLayout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Toast.makeText(context, al_name_tour.get(position), Toast.LENGTH_LONG).show();
-
                 Intent intent = new Intent(context, TourDetail.class);
                 intent.putExtra("imgTour", al_img_tour.get(position));
                 intent.putExtra("nameTour", al_name_tour.get(position));
                 intent.putExtra("descTour", al_desc_tour.get(position));
+                intent.putExtra("locTour", al_location.get(position));
                 intent.putExtra("priceTour", al_price_tour.get(position));
 
                 context.startActivity(intent);
@@ -73,13 +74,14 @@ public class RecycleViewAdapter extends RecyclerView.Adapter<RecycleViewAdapter.
     public class ViewHolder extends RecyclerView.ViewHolder {
 
         ImageView imgTour;
-        TextView nameTour, descTour, priceTour;
+        TextView nameTour, priceTour, locTour;
         LinearLayout linearLayout;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
             imgTour = itemView.findViewById(R.id.img_tour);
             nameTour = itemView.findViewById(R.id.name_tour);
+            locTour = itemView.findViewById(R.id.btn_img_loc);
             priceTour = itemView.findViewById(R.id.price_tour);
             linearLayout = itemView.findViewById(R.id.linear_layout);
         }

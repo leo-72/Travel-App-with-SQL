@@ -49,7 +49,7 @@ public class MainActivity extends AppCompatActivity {
 
         new Handler().postDelayed((Runnable) () -> {
             Intent intent = new Intent(MainActivity.this, LoginPage.class);
-            startActivity(intent);
+            startActivity(intent   );
             finish();
 
         }, SPLASH_SCREEN);

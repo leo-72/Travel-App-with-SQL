@@ -4,167 +4,90 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/white"
     android:orientation="vertical"
-    tools:context=".Receipt">
+    android:background="@color/white"
+    tools:context=".Tickets">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:gravity="center"
-        android:background="@color/black"
         android:orientation="horizontal"
-        android:padding="10dp">
+        android:background="@color/blue">
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:fontFamily="@font/aliey_regular"
-            android:text="Receipt"
-            android:textColor="@color/bgColorSplash"
+            android:text="Tickets"
             android:textSize="40dp"
-            android:textStyle="bold" />
+            android:textStyle="bold"
+            android:fontFamily="@font/aliey_regular"
+            android:textColor="@color/bgColorSplash"
+            android:layout_margin="10dp"/>
     </LinearLayout>
-
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:gravity="center"
-        android:background="@color/blue"
+        android:background="@drawable/selector"
         android:padding="10dp"
-        android:orientation="vertical">
-
-        <ImageView
-            android:id="@+id/img_tour"
-            android:layout_width="match_parent"
-            android:layout_height="220dp"
-            android:background="@color/grey"
-            android:scaleType="centerCrop" />
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:background="@color/blue"
+        android:layout_margin="10dp"
         android:orientation="vertical">
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="vertical"
-            android:padding="20dp">
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="horizontal">
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+            <TextView
                 android:gravity="center"
-                android:orientation="horizontal"
-                android:background="@color/bgColorSplash">
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:text="E-Ticket"
+                android:textSize="25dp"
+                android:textColor="@color/black"
+                android:textStyle="bold"
+                android:fontFamily="sans-serif-black"/>
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Detail User"
-                    android:textSize="20dp"
-                    android:fontFamily="sans-serif-black"
-                    android:textColor="@color/white"/>
-            </LinearLayout>
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="20dp"
-                android:padding="10dp"
+                android:gravity="right"
                 android:orientation="horizontal">
 
-                <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical">
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginBottom="10dp"
-                        android:fontFamily="sans-serif"
-                        android:text="Name"
-                        android:textColor="@color/white"
-                        android:textSize="15dp" />
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginBottom="10dp"
-                        android:fontFamily="sans-serif"
-                        android:text="Email"
-                        android:textColor="@color/white"
-                        android:textSize="15dp" />
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:fontFamily="sans-serif"
-                        android:text="Phone"
-                        android:textColor="@color/white"
-                        android:textSize="15dp" />
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:gravity="right"
-                    android:orientation="vertical">
-
-                    <TextView
-                        android:id="@+id/name"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginBottom="10dp"
-                        android:fontFamily="sans-serif-black"
-                        android:text="Name"
-                        android:textColor="@color/white"
-                        android:textSize="15dp" />
-
-                    <TextView
-                        android:id="@+id/email"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginBottom="10dp"
-                        android:fontFamily="sans-serif-black"
-                        android:text="Email"
-                        android:textColor="@color/white"
-                        android:textSize="15dp" />
-
-                    <TextView
-                        android:id="@+id/phone"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:fontFamily="sans-serif-black"
-                        android:text="Phone"
-                        android:textColor="@color/white"
-                        android:textSize="15dp" />
-                </LinearLayout>
+                <Button
+                    android:layout_width="180dp"
+                    android:layout_height="70dp"
+                    android:enabled="false"
+                    android:backgroundTint="@color/bgColorSplash"
+                    android:drawableLeft="@mipmap/ic_logo"
+                    android:text="@string/nameApp"
+                    android:textStyle="bold"
+                    android:textSize="20dp"
+                    android:textColor="@color/blue"/>
             </LinearLayout>
+        </LinearLayout>
 
-            <LinearLayout
+        <LinearLayout
+            android:layout_marginTop="20dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:gravity="center"
-                android:background="@color/bgColorSplash">
+                android:text="Tour Details"
+                android:textSize="20dp"
+                android:textStyle="bold"
+                android:textColor="@color/bgColorSplash"
+                android:background="@color/blue"
+                android:paddingLeft="10dp"
+                android:fontFamily="sans-serif-black"/>
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Detail Tour"
-                    android:textSize="20dp"
-                    android:fontFamily="sans-serif-black"
-                    android:textColor="@color/white"/>
-            </LinearLayout>
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:padding="10dp"
-                android:layout_marginBottom="50dp"
                 android:orientation="horizontal">
 
                 <LinearLayout
@@ -178,7 +101,7 @@
                         android:layout_marginBottom="10dp"
                         android:fontFamily="sans-serif"
                         android:text="Name Tour"
-                        android:textColor="@color/white"
+                        android:textColor="@color/black"
                         android:textSize="15dp" />
 
                     <TextView
@@ -187,7 +110,7 @@
                         android:layout_marginBottom="10dp"
                         android:fontFamily="sans-serif"
                         android:text="Total People"
-                        android:textColor="@color/white"
+                        android:textColor="@color/black"
                         android:textSize="15dp" />
 
                     <TextView
@@ -195,7 +118,7 @@
                         android:layout_height="wrap_content"
                         android:fontFamily="sans-serif"
                         android:text="Price Tour"
-                        android:textColor="@color/white"
+                        android:textColor="@color/black"
                         android:textSize="15dp" />
                 </LinearLayout>
 
@@ -212,7 +135,7 @@
                         android:layout_marginBottom="10dp"
                         android:fontFamily="sans-serif-black"
                         android:text="Name Tour"
-                        android:textColor="@color/white"
+                        android:textColor="@color/black"
                         android:textSize="15dp" />
 
                     <TextView
@@ -222,19 +145,36 @@
                         android:layout_marginBottom="10dp"
                         android:fontFamily="sans-serif-black"
                         android:text="Total People"
-                        android:textColor="@color/white"
+                        android:textColor="@color/black"
                         android:textSize="15dp" />
 
                     <TextView
-                        android:id="@+id/price_tour"
+                        android:id="@+id/total_price"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:fontFamily="sans-serif-black"
                         android:text="Price Tour"
-                        android:textColor="@color/white"
+                        android:textColor="@color/black"
                         android:textSize="15dp" />
                 </LinearLayout>
             </LinearLayout>
+        </LinearLayout>
+        <LinearLayout
+            android:layout_marginTop="20dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Passenger Details"
+                android:textSize="20dp"
+                android:textStyle="bold"
+                android:textColor="@color/bgColorSplash"
+                android:background="@color/blue"
+                android:paddingLeft="10dp"
+                android:fontFamily="sans-serif-black"/>
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -250,9 +190,27 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:layout_marginBottom="10dp"
                         android:fontFamily="sans-serif"
-                        android:text="Total"
-                        android:textColor="@color/white"
+                        android:text="Name"
+                        android:textColor="@color/black"
+                        android:textSize="15dp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="10dp"
+                        android:fontFamily="sans-serif"
+                        android:text="Email"
+                        android:textColor="@color/black"
+                        android:textSize="15dp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="sans-serif"
+                        android:text="Phone"
+                        android:textColor="@color/black"
                         android:textSize="15dp" />
                 </LinearLayout>
 
@@ -263,25 +221,46 @@
                     android:orientation="vertical">
 
                     <TextView
-                        android:id="@+id/total_price"
+                        android:id="@+id/name"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="10dp"
+                        android:fontFamily="sans-serif-black"
+                        android:text="Name"
+                        android:textColor="@color/black"
+                        android:textSize="15dp" />
+
+                    <TextView
+                        android:id="@+id/email"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="10dp"
+                        android:fontFamily="sans-serif-black"
+                        android:text="Email"
+                        android:textColor="@color/black"
+                        android:textSize="15dp" />
+
+                    <TextView
+                        android:id="@+id/phone"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:fontFamily="sans-serif-black"
-                        android:text="Total Price"
-                        android:textColor="@color/white"
+                        android:text="Phone"
+                        android:textColor="@color/black"
                         android:textSize="15dp" />
                 </LinearLayout>
             </LinearLayout>
-
-            <Button
-                android:id="@+id/btn_confirm"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:backgroundTint="@color/green"
-                android:text="CONFIRM"
-                android:textColor="@color/white"
-                android:textSize="18dp"
-                android:textStyle="bold" />
         </LinearLayout>
     </LinearLayout>
+    <Button
+        android:id="@+id/btn_back"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:text="BACK"
+        android:textSize="20dp"
+        android:fontFamily="sans-serif-black"
+        android:textStyle="bold"
+        android:textColor="@color/blue"/>
+
 </LinearLayout>

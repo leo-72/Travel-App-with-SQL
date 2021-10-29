@@ -1,15 +1,19 @@
 package com.android.travelapp;
 
+import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.net.Uri;
+import android.os.Build;
 import android.os.Bundle;
 import android.view.MenuInflater;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -21,6 +25,7 @@ public class TourDetail extends AppCompatActivity {
     ImageView imgTour;
     TextView nameTour, descTour, priceTour, txtCount;
     Button addCount, subCount, btnPay;
+    ImageButton btnLoc;
     int mCount=1;
 
     MenuInflater inflater;
@@ -30,12 +35,14 @@ public class TourDetail extends AppCompatActivity {
     private ArrayList<TextView> al_count_items = new ArrayList<TextView>();
     private ArrayList<TextView> al_price_tour = new ArrayList<TextView>();
     private ArrayList<Integer> al_total_price = new ArrayList<>();
+    private ArrayList<String> al_location = new ArrayList<>();
 
     SharedPreferences preferences;
 
     private static final String KEY_IMG_TOUR = "img_tour";
     private static final String KEY_TOTAL_PRICE = "total_price";
     private static final String KEY_NAME_TOUR = "name_tour";
+    private static final String KEY_LOC = "loc_tour";
     private static final String KEY_COUNT_ITEMS = "count_items";
     private static final String KEY_PRICE_TOUR = "price_tour";
 
@@ -53,6 +60,8 @@ public class TourDetail extends AppCompatActivity {
         addCount = findViewById(R.id.btn_addCount);
         subCount = findViewById(R.id.btn_subCount);
         btnPay = findViewById(R.id.btn_pay);
+        btnLoc = findViewById(R.id.btn_img_loc);
+
 
         txtCount.setText(Integer.toString(mCount));
 
@@ -84,6 +93,7 @@ public class TourDetail extends AppCompatActivity {
         });
 
         btnPay.setOnClickListener(new View.OnClickListener() {
+            @RequiresApi(api = Build.VERSION_CODES.O)
             @Override
             public void onClick(View view) {
                 int price_tour = getIntent().getIntExtra("priceTour", 0);
@@ -102,7 +112,23 @@ public class TourDetail extends AppCompatActivity {
                 editor.apply();
                 Intent intent = new Intent(TourDetail.this, Receipt.class);
                 startActivity(intent);
+                finish();
+            }
+        });
 
+        btnLoc.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if (getIntent().hasExtra("locTour")){
+                    String txtLoc = getIntent().getStringExtra("locTour");
+                    Uri uri = Uri.parse("geo:0,0?q="+txtLoc);
+                    Intent mapIntent = new Intent(Intent.ACTION_VIEW, uri);
+                    mapIntent.setPackage("com.google.android.apps.maps");
+
+                    if(mapIntent.resolveActivity(getPackageManager()) != null){
+                        startActivity(mapIntent);
+                    }
+                }
             }
         });
 
