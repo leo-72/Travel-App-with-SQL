@@ -137,7 +137,12 @@ public class SignUp extends AppCompatActivity {
                             Toast.makeText(SignUp.this, "Data Cannot be Empty. \nData can be Exhausted.", Toast.LENGTH_LONG).show();
                         } else {
                             String name = preferences.getString(KEY_NAME, null);
-                            if (name != null) {
+                            String email = preferences.getString(KEY_EMAIL, null);
+                            String phone = preferences.getString(KEY_PHONE, null);
+                            String username = preferences.getString(KEY_USER, null);
+                            String pass = preferences.getString(KEY_PASS, null);
+                            String repass = preferences.getString(KEY_REPASS, null);
+                            if (name != null || email != null || phone != null || username != null || pass != null || repass != null) {
                                 Toast.makeText(SignUp.this, "Successful Registration", Toast.LENGTH_LONG).show();
                                 Intent intent = new Intent(SignUp.this, LoginPage.class);
                                 startActivity(intent);

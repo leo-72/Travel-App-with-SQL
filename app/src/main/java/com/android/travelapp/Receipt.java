@@ -31,7 +31,7 @@ public class Receipt extends AppCompatActivity {
     AlertDialog dialog;
     SharedPreferences preferences;
 
-    String CHANNEL_ID = "Travel App v2.1 (BETA)";
+    String CHANNEL_ID = "Travel App v2.6 (BETA)";
     private static final String KEY_NAME = "name";
     private static final String KEY_EMAIL = "email";
     private static final String KEY_PHONE = "phone";

@@ -21,13 +21,6 @@ public class Tickets extends AppCompatActivity {
     Button btnBack;
     AlertDialog dialog;
 
-    private ArrayList<ImageView> al_img_tour = new ArrayList<ImageView>();
-    private ArrayList<TextView> al_name_tour = new ArrayList<TextView>();
-    private ArrayList<TextView> al_count_items = new ArrayList<TextView>();
-    private ArrayList<TextView> al_price_tour = new ArrayList<TextView>();
-    private ArrayList<Integer> al_total_price = new ArrayList<>();
-    private ArrayList<String> al_location = new ArrayList<>();
-
     SharedPreferences preferences;
 
     private static final String KEY_NAME = "name";
