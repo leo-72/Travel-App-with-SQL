@@ -319,7 +319,7 @@ public class Dashboard extends AppCompatActivity {
                         Intent intent = new Intent(Intent.ACTION_SEND );
                         intent.putExtra(Intent.EXTRA_EMAIL, new String[]{"fihdanps@gmail.com"});
                         intent.putExtra(Intent.EXTRA_SUBJECT , "TES DULS YE BANG");
-                        intent.putExtra(Intent.EXTRA_TEXT , "Travel App v.1 (BETA)");
+                        intent.putExtra(Intent.EXTRA_TEXT , "Travel App");
                         intent.setType("message/rfc822");
                         startActivity(Intent.createChooser(intent , "Choose Your Apps : "));
                     }

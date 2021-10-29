@@ -7,6 +7,7 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Pair;
+import android.view.KeyEvent;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
@@ -55,9 +56,9 @@ public class SignUp extends AppCompatActivity {
 
         preferences = getSharedPreferences("userInfo", 0);
 
-        btnSignUp.setOnClickListener(new View.OnClickListener() {
+        inpRePass.setOnKeyListener(new View.OnKeyListener() {
             @Override
-            public void onClick(View view) {
+            public boolean onKey(View view, int keyCode, KeyEvent keyEvent) {
                 String nameValue = inpFullname.getEditText().getText().toString();
                 String emailValue = inpEmail.getEditText().getText().toString();
                 String phoneValue = inpPhone.getEditText().getText().toString();
@@ -77,25 +78,77 @@ public class SignUp extends AppCompatActivity {
 
                     try{
                         if (nameValue.equals("") ||
-                        emailValue.equals("") ||
-                        phoneValue.equals("") ||
-                        userValue.equals("") ||
-                        passValue.equals("") ||
-                        repassValue.equals("")){
+                                emailValue.equals("") ||
+                                phoneValue.equals("") ||
+                                userValue.equals("") ||
+                                passValue.equals("") ||
+                                repassValue.equals("")){
                             Toast.makeText(SignUp.this, "Data Cannot be Empty. \nData can be Exhausted.", Toast.LENGTH_LONG).show();
                         }else{
                             String name = preferences.getString(KEY_NAME, null);
                             if (name != null){
-                                Toast.makeText(SignUp.this, "Successful Registration", Toast.LENGTH_LONG).show();
-                                Intent intent = new Intent(SignUp.this, LoginPage.class);
-                                startActivity(intent);
-                                resetDetailTour();
+                                if (keyEvent.getAction() == KeyEvent.ACTION_DOWN && keyCode == KeyEvent.KEYCODE_ENTER){
+                                    Toast.makeText(SignUp.this, "Successful Registration", Toast.LENGTH_LONG).show();
+                                    Intent intent = new Intent(SignUp.this, LoginPage.class);
+                                    startActivity(intent);
+                                    resetDetailTour();
+                                    finish();
+                                }
                             }
                         }
                     }catch (Exception e){
                         Toast.makeText(SignUp.this, "Username has been used", Toast.LENGTH_LONG).show();
                     }
                 }else{
+                    Toast.makeText(SignUp.this, "Password doesn't match", Toast.LENGTH_LONG).show();
+                }
+
+                return false;
+            }
+        });
+
+        btnSignUp.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                String nameValue = inpFullname.getEditText().getText().toString();
+                String emailValue = inpEmail.getEditText().getText().toString();
+                String phoneValue = inpPhone.getEditText().getText().toString();
+                String userValue = inpUser.getEditText().getText().toString();
+                String passValue = inpPass.getEditText().getText().toString();
+                String repassValue = inpRePass.getEditText().getText().toString();
+
+                if (passValue.equals(repassValue)) {
+                    SharedPreferences.Editor editor = preferences.edit();
+                    editor.putString(KEY_NAME, nameValue);
+                    editor.putString(KEY_EMAIL, emailValue);
+                    editor.putString(KEY_PHONE, phoneValue);
+                    editor.putString(KEY_USER, userValue);
+                    editor.putString(KEY_PASS, passValue);
+                    editor.putString(KEY_REPASS, repassValue);
+                    editor.apply();
+
+                    try {
+                        if (nameValue.equals("") ||
+                                emailValue.equals("") ||
+                                phoneValue.equals("") ||
+                                userValue.equals("") ||
+                                passValue.equals("") ||
+                                repassValue.equals("")) {
+                            Toast.makeText(SignUp.this, "Data Cannot be Empty. \nData can be Exhausted.", Toast.LENGTH_LONG).show();
+                        } else {
+                            String name = preferences.getString(KEY_NAME, null);
+                            if (name != null) {
+                                Toast.makeText(SignUp.this, "Successful Registration", Toast.LENGTH_LONG).show();
+                                Intent intent = new Intent(SignUp.this, LoginPage.class);
+                                startActivity(intent);
+                                resetDetailTour();
+                                finish();
+                            }
+                        }
+                    } catch (Exception e) {
+                        Toast.makeText(SignUp.this, "Username has been used", Toast.LENGTH_LONG).show();
+                    }
+                } else {
                     Toast.makeText(SignUp.this, "Password doesn't match", Toast.LENGTH_LONG).show();
                 }
             }

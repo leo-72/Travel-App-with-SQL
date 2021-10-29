@@ -8,6 +8,7 @@ import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
 import android.util.Pair;
+import android.view.KeyEvent;
 import android.view.View;
 import android.view.WindowManager;
 import android.widget.Button;
@@ -51,6 +52,31 @@ public class LoginPage extends AppCompatActivity {
             public void onClick(View view) {
                 Intent intent = new Intent(LoginPage.this, SignUp.class);
                 startActivity(intent);
+            }
+        });
+
+        txtPass.setOnKeyListener(new View.OnKeyListener() {
+            @Override
+            public boolean onKey(View view, int keyCode, KeyEvent keyEvent) {
+                if (keyEvent.getAction() == KeyEvent.ACTION_DOWN && keyCode == KeyEvent.KEYCODE_ENTER){
+                    String userValue = txtUser.getEditText().getText().toString();
+                    String emailValue = txtUser.getEditText().getText().toString();
+                    String passValue = txtPass.getEditText().getText().toString();
+
+                    String loginUser = preferences.getString("user","");
+                    String emailUser = preferences.getString("email","");
+                    String loginPass = preferences.getString("pass","");
+
+                    if (userValue.equals(loginUser) && passValue.equals(loginPass) || emailValue.equals(emailUser) && passValue.equals(loginPass)){
+                        Intent intent = new Intent(LoginPage.this, Dashboard.class);
+                        startActivity(intent);
+                        finish();
+                        Toast.makeText(LoginPage.this, "Login", Toast.LENGTH_LONG).show();
+                    }else {
+                        Toast.makeText(LoginPage.this, "Username or Password doesn't match", Toast.LENGTH_LONG).show();
+                    }
+                }
+                return false;
             }
         });
 
